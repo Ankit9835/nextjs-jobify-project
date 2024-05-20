@@ -1,10 +1,9 @@
+import CreateJobForm from '@/components/CreateJobForm'
 import React from 'react'
 
 const AddJob = () => {
   return (
-    <div>
-        Add Job
-    </div>
+    <CreateJobForm />
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { UserButton } from '@clerk/nextjs'
-import ThemeToogle from './ThemeToogle'
+import { ThemeToggle } from './ThemeToogle'
 import DropdownLinks from './DropDownLinks'
 
 
@@ -11,7 +11,7 @@ const Navbar = () => {
           <DropdownLinks />
         </div>
         <div className='flex items-center gap-x-4'>
-            < ThemeToogle />
+            < ThemeToggle />
             <UserButton afterSignOutUrl='/' />
         </div>
     </nav>
