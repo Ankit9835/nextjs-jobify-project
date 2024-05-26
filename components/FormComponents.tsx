@@ -52,31 +52,34 @@ export function CustomFormSelect({
     labelText
 }: CustomFormSelectProps) {
     return (
-        <FormField
-      control={control}
-      name={name}
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel className='capitalize'>{labelText || name}</FormLabel>
-          <Select onValueChange={field.onChange} defaultValue={field.value}>
-            <FormControl>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-            </FormControl>
-            <SelectContent>
-              {items.map((item) => {
-                return (
-                  <SelectItem key={item} value={item}>
-                    {item}
-                  </SelectItem>
-                );
-              })}
-            </SelectContent>
-          </Select>
-
-          <FormMessage />
-        </FormItem>
-    )
-}
+      <FormField
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className='capitalize'>{labelText || name}</FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                {items.map((item) => {
+                  return (
+                    <SelectItem key={item} value={item}>
+                      {item}
+                    </SelectItem>
+                  );
+                })}
+              </SelectContent>
+            </Select>
+  
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+    );
+  }
+  export default CustomFormSelect;
     
