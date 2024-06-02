@@ -15,15 +15,22 @@ import {
 
 const SearchForm = () => {
     const [search, setSearch] = useState('');
-    const [jobStatus, setJobStatus] = useState('');
+    const [jobStatus, setJobStatus] = useState('all');
+
+    const router = useRouter();
+    const pathname = usePathname();
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        let params = new URLSearchParams()
         const formData = new FormData(e.currentTarget)
         const search = formData.get('search') as string
         const jobStatus = formData.get('jobStatus') as string
         setSearch(search)
         setJobStatus(jobStatus)
+        params.set('search', search)
+        params.set('jobStatus',jobStatus)
+        router.push(`${pathname}?${params.toString()}`)
     }
     return (
         <form
