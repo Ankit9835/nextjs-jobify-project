@@ -17,6 +17,7 @@ const JobList = () => {
     queryKey: ['jobs', search ?? '', jobStatus, pageNumber],
     queryFn: () => getAllJobActions(({search,jobStatus,page:pageNumber}))
   })
+  
   const jobs = data?.jobs || []
 
   if(isPending) return <h2 className='text-xl'>Please Wait...</h2>;
