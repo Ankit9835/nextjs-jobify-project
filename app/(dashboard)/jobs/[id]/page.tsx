@@ -21,3 +21,5 @@ import {
         </HydrationBoundary>
       );
   }
+
+  export default JobsDetailPage
