@@ -17,11 +17,11 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import JobInfo from './JobInfo';
 import DeleteJobBtn from './DeleteJobBtn';
+import { formatDate } from '@/utils/dateUtils';
 
 
 const JobCard = ({job}: {job:JobType}) => {
-  const date = new Date(job.createdAt).toLocaleDateString();
-  console.log('date',date)
+  const date = formatDate(job.createdAt)
   return (
     <Card className='bg-muted'>
       <CardHeader>

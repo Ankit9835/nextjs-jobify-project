@@ -22,11 +22,12 @@ import {
 } from '@/utils/actions';
 import { useToast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const EditJobForm = ({jobId}: {jobId: string}) => {
   const queryClient = new QueryClient()
   const router = useRouter()
-  const {toast} = useToast
+  const {toast} = useToast()
 
   const {data} = useQuery({
     queryKey: ['job', jobId],
@@ -44,9 +45,10 @@ const EditJobForm = ({jobId}: {jobId: string}) => {
       }
       toast({ description: 'job updated' });
       queryClient.invalidateQueries({ queryKey: ['jobs'] });
-      queryClient.invalidateQueries({ queryKey: ['job', jobId] });
+      queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
       queryClient.invalidateQueries({ queryKey: ['stats'] });
       router.push('/jobs');
+      form.reset()
     }
   })
 
@@ -60,6 +62,8 @@ const EditJobForm = ({jobId}: {jobId: string}) => {
       mode: (data?.mode as JobMode) || JobMode.FullTime,
     },
   });
+
+
 
   // 2. Define a submit handler.
   function onSubmit(values: CreateAndEditJobType) {
