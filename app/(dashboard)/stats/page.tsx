@@ -1,6 +1,8 @@
-import React from 'react'
+import { getStatsAction } from '@/utils/actions'
 
 const Stats = () => {
+  const stats = getStatsAction()
+
   return (
     <div>Stats</div>
   )
